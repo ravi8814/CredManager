@@ -1,0 +1,160 @@
+﻿@using CredMgr.Models
+@model UserInfoViewModels
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<div class="page-bar">
+    <div class="page-title-breadcrumb">
+        <div class=" pull-left">
+            <div class="page-title">Dashboard</div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-right">
+            <li>
+                <i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                   href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+            </li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </div>
+</div>
+<!-- start widget -->
+<div class="state-overview">
+    <div class="row">
+        <!-- /.col 1-->
+        <div class="col-lg-3 col-sm-6">
+            <div class="overview-panel deepPink-bgcolor">
+                <div class="symbol">
+                    <i class="fa fa-globe usr-clr"></i>
+                </div>
+                <div class="value white">
+                    <p class="addr-font-h3">Florida</p>
+                    <p class="sbold addr-font-h1" data-counter="counterup" data-value="15">0</p>
+                    &nbsp;<span class="addr-font-h4"> (Provider)</span>
+                </div>
+            </div>
+        </div>
+        <!-- /.col 2-->
+        <div class="col-lg-3 col-sm-6">
+            <div class="overview-panel orange">
+                <div class="symbol">
+                    <i class="fa fa-globe usr-clr"></i>
+                </div>
+                <div class="value white">
+                    <p class="addr-font-h3">Texas</p>
+                    <p class="sbold addr-font-h1" data-counter="counterup" data-value="2">0</p>
+                    &nbsp;<span class="addr-font-h4"> (Provider)</span>
+                </div>
+            </div>
+        </div>
+        <!-- /.col 3-->
+        <div class="col-lg-3 col-sm-6">
+            <div class="overview-panel purple">
+                <div class="symbol">
+                    <i class="fa fa-globe usr-clr"></i>
+                </div>
+                <div class="value white">
+                    <p class="addr-font-h3">Califonia</p>
+                    <p class="sbold addr-font-h1" data-counter="counterup" data-value="8">0</p>
+                    &nbsp;<span class="addr-font-h4"> (Provider)</span>
+                </div>
+            </div>
+        </div>
+        <!-- /.col 4-->
+        <div class="col-lg-3 col-sm-6">
+            <div class="overview-panel green">
+                <div class="symbol">
+                    <i class="fa fa-globe usr-clr"></i>
+                </div>
+                <div class="value white">
+                    <p class="addr-font-h3">Arizona</p>
+                    <p class="sbold addr-font-h1" data-counter="counterup" data-value="5">0</p>
+                    &nbsp;<span class="addr-font-h4"> (Provider)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- /.col 1-->
+        <div class="col-lg-3 col-sm-6">
+            <div class="overview-panel bg-info">
+                <div class="symbol">
+                    <i class="fa fa-globe usr-clr"></i>
+                </div>
+                <div class="value white">
+                    <p class="addr-font-h3">Georgia</p>
+                    <p class="sbold addr-font-h1" data-counter="counterup" data-value="12">0</p>
+                    &nbsp;<span class="addr-font-h4"> (Provider)</span>
+                </div>
+            </div>
+        </div>
+        <!-- /.col 2-->
+        <div class="col-lg-3 col-sm-6">
+            <div class="overview-panel yellow">
+                <div class="symbol">
+                    <i class="fa fa-globe usr-clr"></i>
+                </div>
+                <div class="value white">
+                    <p class="addr-font-h3">Washington</p>
+                    <p class="sbold addr-font-h1" data-counter="counterup" data-value="10">0</p>
+                    &nbsp;<span class="addr-font-h4"> (Provider)</span>
+                </div>
+            </div>
+        </div>
+        <!-- /.col 3-->
+        <div class="col-lg-3 col-sm-6">
+            <div class="overview-panel blue-bgcolor">
+                <div class="symbol">
+                    <i class="fa fa-globe usr-clr"></i>
+                </div>
+                <div class="value white">
+                    <p class="addr-font-h3">Texas</p>
+                    <p class="sbold addr-font-h1" data-counter="counterup" data-value="9">0</p>
+                    &nbsp;<span class="addr-font-h4"> (Provider)</span>
+                </div>
+            </div>
+        </div>
+        <!-- /.col 4-->
+        <div class="col-lg-3 col-sm-6">
+            <div class="overview-panel red-bgcolor">
+                <div class="symbol">
+                    <i class="fa fa-globe usr-clr"></i>
+                </div>
+                <div class="value white">
+                    <p class="addr-font-h3">Ohio</p>
+                    <p class="sbold addr-font-h1" data-counter="counterup" data-value="4">0</p>
+                    &nbsp;<span class="addr-font-h4"> (Provider)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end widget -->
+@section scripts {
+<script type="text/javascript">
+        function selectedMenu()
+        {
+            $("#remove-scroll>ul>li.active").removeClass("active");
+            $("#remove-scroll>ul>li.active").removeClass("open");
+            $("#remove-scroll>ul>li.active").removeClass("selected");
+
+            $("#smDashboard").addClass("active open ");
+            $("#smDashboardli").addClass("active open ");
+            $("#smDboardLnk").append("<span class='selected'></span>");
+
+        }
+
+        selectedMenu();
+
+</script>
+    <!-- data tables -->   
+    <link href="~/Content/assets/bundles/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet"
+      type="text/css" />
+<link href="~/Content/assets/bundles/datatables/export/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Content/assets/bundles/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Content/assets/bundles/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js"></script>
+
+ 
+    <script src="~/Content/ServiceScripts/Dashboard.js"></script>
+}
+

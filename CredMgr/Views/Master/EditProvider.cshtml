@@ -1,0 +1,316 @@
+﻿@using CredMgr.Models
+@model ProvidersModel
+
+@{
+    ViewBag.Title = "EditProvider";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<!-- start page content -->
+
+<div class="page-bar">
+    <div class="page-title-breadcrumb">
+        <div class=" pull-left">
+            <div class="page-title">Edit Provider Master</div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-right">
+            <li>
+                <i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                   href="~/Home/Dashboard">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a class="parent-item" href="~/Master/Provider">Provider Master</a>&nbsp;<i class="fa fa-angle-right"></i>
+            </li>
+            <li class="active">Edit Provider Master</li>
+        </ol>
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            @*<p style="color:blue">@ViewBag.Message</p>*@
+                @Html.HiddenFor(model => model.PK_Provider)
+            <div class="card card-box">
+                <div class="card-body" id="bar-parent">
+                    <form action="#" id="form_sample_1" class="form-horizontal">
+                        <div class="form-body">
+                            <div class="form-group row wrap-input100 validate-input" data-validate="Enter username">
+                                <label class="control-label col-md-3">
+                                    Group Name
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <input type="text" name="GroupName" data-required="1"
+                                           placeholder="Enter Group Name" id="GroupName"
+                                           class="form-control input-height" value="@Model.GroupName" required/>
+                                    @Html.ValidationMessageFor(m=> m.GroupName)
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Group TaxId
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <input type="text" name="GroupTaxId" data-required="1"
+                                           placeholder="Enter Group TaxId" id="GroupTaxId"
+                                           class="form-control input-height" value="@Model.GroupTaxId"  required/>
+                                    @Html.ValidationMessageFor(m => m.GroupTaxId)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Group NPI
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <input type="text" name="GroupNPI" data-required="1"
+                                           placeholder="Enter Group NPI" id="GroupNPI"
+                                           class="form-control input-height" value="@Model.GroupName" required/>
+                                    @Html.ValidationMessageFor(m => m.GroupName)
+                                </div>
+                            </div>
+
+
+                          
+
+
+
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Provider Code
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <input type="text" name="ProvCode" data-required="1"
+                                           placeholder="Enter Provider Code" id="ProvCode"
+                                           class="form-control input-height" value="@Model.ProvCode" required/>
+                                    @Html.ValidationMessageFor(m => m.ProvCode)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Provider Name
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <input type="text" name="ProvName" data-required="1"
+                                           placeholder="Enter Provider Name" id="ProvName"
+                                           class="form-control input-height" value="@Model.ProvName" required/>
+                                    @Html.ValidationMessageFor(m => m.ProvName)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Title
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <input type="text" name="Title" data-required="1"
+                                           placeholder="Enter Title" id="Title"
+                                           class="form-control input-height" value="@Model.Title" required/>
+                                    @Html.ValidationMessageFor(m => m.Title)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    NPI
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <input type="text" name="NPI" data-required="1"
+                                           placeholder="Enter NPI" id="NPI"
+                                           class="form-control input-height" value="@Model.NPI" required/>
+                                    @Html.ValidationMessageFor(m => m.NPI)
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Date Of Birth
+                                    <span class="required"> * </span>
+                                </label>
+                                <div style="margin:0 0 0 15px">
+                                    <input id="DOB" type="text" placeholder="DOB(MM/DD/YYYY)" value="@Model.DOB" onfocus="(this.type='date')" autocomplete="off" class="form-control input-height" required>
+                                    @Html.ValidationMessageFor(m => m.DOB)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    SSN
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <input type="text" name="SSN" data-required="1"
+                                           placeholder="Enter SSN" id="SSN" value="@Model.SSN"
+                                           class="form-control input-height" required/>
+                                    @Html.ValidationMessageFor(m => m.SSN)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Speciality
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <input type="text" name="Speciality" data-required="1"
+                                           placeholder="Enter Speciality" id="Speciality"
+                                           class="form-control input-height" value="@Model.Speciality" required/>
+                                    @Html.ValidationMessageFor(m => m.Speciality)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Address Line 1
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <textarea name="AddressLine1" placeholder="Address Line 1"
+                                              id="AddressLine1" value="@Model.AddressLine1" class="form-control-textarea"
+                                              rows="5" required></textarea>
+                                    @Html.ValidationMessageFor(m => m.AddressLine1)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Address Line 2
+                                </label>
+                                <div class="col-md-5">
+                                    <textarea name="AddressLine2" placeholder="Address Line 2"
+                                              id="AddressLine2" class="form-control-textarea" value="@Model.AddressLine2"
+                                              rows="5" required></textarea>
+                                    @Html.ValidationMessageFor(m => m.AddressLine2)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    City
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <input type="text" name="City" data-required="1"
+                                           id="City" placeholder="Enter City" value="@Model.City"
+                                           class="form-control input-height" required/>
+                                    @Html.ValidationMessageFor(m => m.City)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    State
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <input type="text" name="State" data-required="1"
+                                           placeholder="Enter State" id="State" value="@Model.State"
+                                           class="form-control input-height" required/>
+                                    @Html.ValidationMessageFor(m => m.State)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    ZipCode
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <input type="text" name="ZipCode" data-required="1"
+                                           placeholder="Enter ZipCode" id="ZipCode" value="@Model.ZipCode"
+                                           class="form-control input-height" required/>
+                                    @Html.ValidationMessageFor(m => m.ZipCode)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Home PhoneNumber
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <input name="HomePhoneNumber" type="text" placeholder="Home PhoneNumber"
+                                           class="form-control input-height" id="HomePhoneNumber" value="@Model.HomePhoneNumber" required/>
+                                    @Html.ValidationMessageFor(m => m.HomePhoneNumber)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Work PhoneNumber
+                                </label>
+                                <div class="col-md-5">
+                                    <input name="WorkPhoneNumber" type="text" placeholder="Work PhoneNumber"
+                                           class="form-control input-height" id="WorkPhoneNumber" value="@Model.WorkPhoneNumber" required />
+                                    @Html.ValidationMessageFor(m => m.WorkPhoneNumber)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Other PhoneNumber
+                                </label>
+                                <div class="col-md-5">
+                                    <input name="OtherPhoneNumber" type="text" placeholder="Other PhoneNumber"
+                                           class="form-control input-height" id="OtherPhoneNumber" value="@Model.OtherPhoneNumber" required/>
+                                    @Html.ValidationMessageFor(m => m.OtherPhoneNumber)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Fax Number
+                                </label>
+                                <div class="col-md-5">
+                                    <input type="text" name="FaxNumber" data-required="1" placeholder="Enter FaxNumber"
+                                           class="form-control input-height" id="FaxNumber" value="@Model.FaxNumber" required/>
+                                    @Html.ValidationMessageFor(m => m.FaxNumber)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Email
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control input-height" name="EmailId"
+                                               placeholder="Enter Email Address" id="EmailId" value="@Model.EmailId" required>
+                                        @Html.ValidationMessageFor(m => m.EmailId)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Note
+                                </label>
+                                <div class="col-md-5">
+                                    <textarea name="Note" placeholder="Enter any note" id="Note" value="@Model.Note"
+                                              class="form-control-textarea" rows="5" required></textarea>
+                                    @Html.ValidationMessageFor(m => m.Note)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="offset-md-3 col-md-9">
+                                    <button type="submit" class="btn btn-info m-r-20">Submit</button>
+                                    <button type="reset" class="btn btn-default">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+    }
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+    </script>
+}
+    <!-- end page content -->

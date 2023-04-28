@@ -1,0 +1,166 @@
+﻿@using CredMgr.Models
+@model InsuranceMappingVM
+@{
+    ViewBag.Title = "Provider";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    @*<link href="~/Content/Chosen/chosen.min.css" rel="stylesheet" />*@
+    
+</head>
+@using (Html.BeginForm())
+{
+
+    <!-- start page content -->
+
+
+    <div class="page-bar">
+        <div class="page-title-breadcrumb">
+            <div class=" pull-left">
+                <div class="page-title">Insurance Master</div>
+            </div>
+            <ol class="breadcrumb page-breadcrumb pull-right">
+                <li>
+                    <i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                       href="~/Home/Dashboard">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+                </li>
+                <li class="active">Insurance Master</li>
+            </ol>
+        </div>
+    </div>
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-topline-red">
+                    <div class="card-head">
+                        <header>INSURANCE MAPPING</header>
+                    </div>
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="btn-group">
+                                    <a href="~/Master/EditInsurance" id="addRow"
+                                       class="btn btn-info">
+                                        Add New <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="table-scrollable">
+                            <table class="table table-hover table-checkable order-column full-width"
+                                   id="example4">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th> Insurance Code </th>
+                                        <th> Insurance Name </th>
+                                        <th> Address Line 1 </th>
+                                        <th> Address Line 2 </th>
+                                        <th> City </th>
+                                        <th> State </th>
+                                        <th> ZipCode </th>
+                                        <th> PhoneNumber </th>
+                                        <th> Email </th>
+                                        <th> Website </th>
+                                        <th> Payer ID </th>
+                                        <th> Note </th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model.Insurance)
+                                    {
+
+                                        <input type="hidden" id="custId" name="custId" value="@item.PK_Insurance">
+                                        <tr class="odd gradeX">
+
+                                            <td></td>
+                                            
+                                            <td>@item.InsuranceCode</td>
+                                            <td>@item.InsuranceName</td>
+                                            <td>@item.AddressLine1</td>
+                                            <td>@item.AddressLine2</td>
+                                            <td>@item.City</td>
+                                            <td>@item.State</td>
+                                            <td>@item.ZipCode</td>
+                                            <td>@item.PhoneNumber</td>
+                                            <td>@item.EmailId</td>
+                                            <td>@item.Website</td>
+                                            <td>@item.Note</td>
+                                            <td>@item.PayerID</td>
+                                            
+
+                                            <td>
+
+
+                                                @Html.ActionLink("Edit", "EditInsurance",
+         new { controller = "Master", id = (@item.PK_Insurance) },
+         new { @class = "btn btn-primary btn-xs" })
+                                                </td>
+                                                    <td>
+
+
+
+                                                        <div id="showmodal" class="modal fade" tabindex="-1" role="dialog" style="align-content:center;">
+                                                            <div class="modal-dialog" role="document" data-keyboard="false" data-backdrop="static" >
+                                                                <div class="modal-content" style="width:605px">
+                                                                    @{
+                                                                            Html.RenderPartial("~/Views/Master/AddMasterMapping13.cshtml", Model);
+                                                                    }
+                                                                </div><!-- /.modal-content -->
+                                                            </div><!-- /.modal-dialog -->
+                                                        </div><!-- /.modal -->
+                                                        <button id='open' data-toggle="modal" class="btn btn-primary btn-xs" data-target="#showmodal">Add Mapping</button>
+
+
+    
+        </td>
+</tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*<script src="~/Scripts/chosen.jquery.min.js"></script>*@
+                                }
+       
+
+
+<script type="text/javascript">
+
+    function closediv()
+    {
+        dvPassport.close();
+    }
+
+    const targetDiv = document.getElementById("dvPassport");
+    const btn = document.getElementById("cross");
+    function ShowHideDiv(btn_close) {
+        if (targetDiv.style.display !== "none") {
+            targetDiv.style.display = "none";
+        }
+        else {
+            targetDiv.style.display = "block";
+        }
+    };
+
+</script>
+

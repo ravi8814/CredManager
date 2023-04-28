@@ -1,0 +1,206 @@
+﻿@using CredMgr.Models
+@model InsuranceMappingVM
+@{
+    ViewBag.Title = "AddMapping";
+    Layout = null;
+}
+
+<head>
+    <link href="~/Content/Chosen/chosen.min.css" rel="stylesheet" />
+</head>
+<div class="modal-header" >
+    
+    @using (Html.BeginForm())
+    {
+        <div class="row" >
+            <div class="col-md-12 col-sm-12" >
+
+
+                <div class="card card-box">
+                    <div class="card-body" id="bar-parent">
+                        <form action="#" id="form_sample_1" class="form-horizontal" style="width:600px">
+                            <div class="form-body" style="width:500px">
+                                <div class="form-group row wrap-input100 validate-input" data-validate="Enter username">
+
+                                    <label class="control-label col-md-3">
+                                        State
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-5" >
+
+                                        @Html.DropDownListFor(x => x.StateId, new SelectList(ViewBag.StateList, "PK_States", "name"), "--State List--", new { @class = "form-control" })
+
+
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3">
+                                        Providers
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-5">
+                                        @Html.DropDownListFor(x => x.Selected_ProviderId, new SelectList(ViewBag.ProviderList, "PK_Provider", "ProvName"), "--Provider List--", new { id = "normalDropDown", @class = "form-control " })
+                                        @*@Html.ListBoxFor(x => x.Selected_ProviderArray, new MultiSelectList(ViewBag.ProviderList, "PK_Provider", "ProvName"), new { id = "multiSelectDropDown", multiple="multiple"})*@
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3">
+                                        Aplication Method
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-5">
+
+                                        @Html.EnumDropDownListFor(x => x.AplicationMethod, "--Select Application Method--", new { @class = "form-control" })
+
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3">
+                                        Plans
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-5">
+
+                                        @Html.EnumDropDownListFor(x => x.Plans, "--Select Plans--", new { @class = "form-control" })
+
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3">
+                                        Web Portal
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-5">
+                                        @Html.EnumDropDownListFor(x => x.WebPortal, "--Web Portal--", new { @class = "form-control" })
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3">
+                                        Participation Status
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-5">
+                                        @Html.EnumDropDownListFor(x => x.ParticipationStatus, "--Participation Status--", new { @class = "form-control" })
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3">
+                                        EDI
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-5">
+                                        @Html.EnumDropDownListFor(x => x.EDI, "--EDI--", new { @class = "form-control" })
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3">
+                                        Effective Start Date
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div style="margin:0 0 0 15px">
+                                        @Html.EditorFor(x => x.EffectiveStartDate, new { htmlAttributes = new { @class = "form-control input-height" } })
+
+                                        @*<input id="EffectiveStartDate" type="text" placeholder="DOB(MM/DD/YYYY)" value="@Model.EffectiveStartDate" onfocus="(this.type='date')" autocomplete="off" class="form-control input-height" required>*@
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3">
+                                        Effective End Date
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div style="margin:0 0 0 15px">
+                                        @Html.EditorFor(x => x.EffectiveEndDate, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3">
+                                        Next Follow-Up Date
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div style="margin:0 0 0 10px">
+                                        @Html.EditorFor(x => x.NextFollowUpDate, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3">
+                                        Comment
+                                    </label>
+                                    <div class="col-md-5">
+                                        <textarea name="Comment" placeholder="Enter any note" id="Comment" value="@Model.Comment"
+                                                  class="form-control-textarea" rows="5" style="width:300px" required></textarea>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-actions" style="width:600px" >
+                                    <div class="row">
+                                        <div class="offset-md-3 col-md-9">
+                                            
+                                           
+                                            <button type="submit" class="btn btn-info m-r-20">Submit</button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            @*<a href="~/Master/Insurance" class="btn btn-default">Close</a>*@
+                                           
+                                            @*<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>*@
+                                            @*<button type="button" class="btn btn-danger" value="close" data-dismiss="modal" aria-label="Close">&times;</button>*@
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"
+          rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
+    <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js" type="text/javascript"></script>
+    <script src="~/Scripts/chosen.jquery.min.js"></script>
+
+    <script>
+
+        (document).ready(function () {
+            $("#Date").datepicker();
+        });
+    </script>
+
+    <script>
+        $(function () {
+
+            $("#multiSelectDropDown").chosen({
+                width: "100%"
+            });
+        });
+    </script>
+
+
+

@@ -1,0 +1,186 @@
+﻿@using CredMgr.Models
+@model MasterMappingModel
+
+@{
+    ViewBag.Title = "AddMapping";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<!-- start page content -->
+
+<div class="page-bar">
+    <div class="page-title-breadcrumb">
+        <div class=" pull-left">
+            <div class="page-title">Add Mapping</div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-right">
+            <li>
+                <i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                   href="~/Home/Dashboard">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a class="parent-item" href="~/Master/Provider">Provider Master</a>&nbsp;<i class="fa fa-angle-right"></i>
+            </li>
+            <li class="active">Add Mapping</li>
+        </ol>
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            @*<p style="color:blue">@ViewBag.Message</p>*@
+          
+            <div class="card card-box">
+                <div class="card-body" id="bar-parent">
+                    <form action="#" id="form_sample_1" class="form-horizontal">
+                        <div class="form-body">
+                            @*<div class="form-group row wrap-input100 validate-input" data-validate="Enter username">
+                                <label class="control-label col-md-3">
+                                    State
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    @Html.DropDownListFor(x => x.StateId, new SelectList(ViewBag.StateList, "PK_States", "name"), "--State List--")
+                                
+
+                                </div>
+                            </div>*@
+                            @*<div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Providers
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    @Html.DropDownListFor(x => x.ProviderId, new SelectList(ViewBag.ProviderList, "PK_Provider", "ProvName"), "--Insurance List--")
+                                    
+                                </div>
+                            </div>*@
+                            @*<div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Aplication Method
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    @Html.DropDownListFor(x => x.AplicationMethod, new SelectList(ViewBag.ApplicationMethod), "--Application Method--")
+                                   
+                                </div>
+                            </div>
+
+
+
+
+
+
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Plans
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                   @Html.DropDownListFor(x => x.Plans, new SelectList(ViewBag.PlanList), "--Plan List--")
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Participation Status
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    @Html.DropDownListFor(x => x.ParticipationStatus, new SelectList(ViewBag.ParticipationStatus), "--Participation Status--")
+                               
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Web Portal
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                    @Html.DropDownListFor(x => x.WebPortal, new SelectList(ViewBag.WebPortal), "--Web Portal--")
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    EDI
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-5">
+                                   @Html.DropDownListFor(x => x.EDI, new SelectList(ViewBag.EDI), "--EDI--")
+                                  
+                                </div>
+                            </div>*@
+
+
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Effective Start Date
+                                    <span class="required"> * </span>
+                                </label>
+                                <div style="margin:0 0 0 15px">
+                                    <input id="EffectiveStartDate" type="text" placeholder="DOB(MM/DD/YYYY)" value="@Model.EffectiveStartDate" onfocus="(this.type='date')" autocomplete="off" class="form-control input-height" required>
+                                  
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Effective End Date
+                                    <span class="required"> * </span>
+                                </label>
+                                <div style="margin:0 0 0 15px">
+                                    <input id="EffectiveEndDate" type="text" placeholder="DOB(MM/DD/YYYY)" value="@Model.EffectiveEndDate" onfocus="(this.type='date')" autocomplete="off" class="form-control input-height" required>
+                                  
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    NextFollowUpDate
+                                    <span class="required"> * </span>
+                                </label>
+                                <div style="margin:0 0 0 15px">
+                                    <input id="NextFollowUpDate" type="text" placeholder="DOB(MM/DD/YYYY)" value="@Model.NextFollowUpDate" onfocus="(this.type='date')" autocomplete="off" class="form-control input-height" required>
+                              
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Comment
+                                </label>
+                                <div class="col-md-5">
+                                    <textarea name="Comment" placeholder="Enter any note" id="Comment" value="@Model.Comment"
+                                              class="form-control-textarea" rows="5" required></textarea>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="offset-md-3 col-md-9">
+                                    <button type="submit" class="btn btn-info m-r-20">Submit</button>
+                                    <button type="reset" class="btn btn-default">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}
+@*@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+    </script>
+}*@

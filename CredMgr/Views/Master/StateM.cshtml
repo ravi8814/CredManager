@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "StateM";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<link href="~/Content/css/bootstrap-multiselect.css" rel="stylesheet" />
+<link href="~/Content/assets/bundles/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet"
+      type="text/css" />
+<link href="~/Content/assets/bundles/datatables/export/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+
+<link href="~/Content/css/style.css" rel="stylesheet" />
+<div id="overlay"></div>
+<div id="wait" style="display:none;width:100px;height:100px;position:absolute;top:60%;left:50%;padding:2px;"><img src="~/Content/img/loading.gif" width="100" height="100" /><br></div>
+<!-- Data Tables End -->
+<div class="page-bar">
+    <div class="page-title-breadcrumb">
+        <div class="pull-left">
+            
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-right">
+            <li>
+                <i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                   href="#">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a class="parent-item" href="">Admin</a>&nbsp;<i class="fa fa-angle-right"></i>
+            </li>
+            <li class="active">State Master</li>
+            @*<li>UID @Model.UserId</li>*@
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="card card-box">
+            <div class="card-body " id="bar-parent">
+               
+                &nbsp;<button type="button" style="margin-left:12px;" class="dt-button buttons-excel buttons-html5" onclick="filter()">Search</button>
+                <table id="chieldRow" class="display table table-striped table-bordered table-checkable order-column" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th style="white-space:nowrap;">MR</th>
+                            <th style="min-width:160px;">Patient Name</th>
+                            <th style="white-space:nowrap;">Co-ordinator</th>
+                            <th style="white-space:nowrap;">Next calling date</th>
+                            <th style="white-space:nowrap;max-width:450px;">Comment</th>
+                            <th style="min-width:100px;">Patient Type</th>
+                            <th style="white-space:nowrap;">Action</th>
+                        </tr>
+                    </thead>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

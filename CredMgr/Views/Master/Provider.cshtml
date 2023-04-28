@@ -1,0 +1,126 @@
+﻿@using CredMgr.Models
+@model IList<ProvidersModel>
+
+@{
+    ViewBag.Title = "Provider";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+@using (Html.BeginForm())
+{
+
+    <!-- start page content -->
+    <div class="page-bar">
+        <div class="page-title-breadcrumb">
+            <div class=" pull-left">
+                <div class="page-title">Provider Master</div>
+            </div>
+            <ol class="breadcrumb page-breadcrumb pull-right">
+                <li>
+                    <i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                       href="~/Home/Dashboard">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+                </li>
+                <li class="active">Provider Master</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-topline-red">
+                <div class="card-head">
+                    <header>PROVIDER MAPPING</header>
+                </div>
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="btn-group">
+                                <a href="~/Master/EditProvider" id="addRow"
+                                   class="btn btn-info">
+                                    Add New <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-scrollable">
+                        <table class="table table-hover table-checkable order-column full-width"
+                               id="example4">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th> GroupName </th>
+                                    <th> GroupTaxId </th>
+                                    <th> GroupNPI </th>
+                                    <th> ProvCode </th>
+                                    <th> ProvName </th>
+                                    <th> Title </th>
+                                    <th> NPI </th>
+                                    <th> DOB </th>
+                                    <th> SSN </th>
+                                    <th> Speciality </th>
+                                    <th> AddressLine1 </th>
+                                    <th> AddressLine2 </th>
+                                    <th> City </th>
+                                    <th> State </th>
+                                    <th> ZipCode </th>
+                                    <th> HomePhoneNumber </th>
+                                    <th> WorkPhoneNumber </th>
+                                    <th> OtherPhoneNumber </th>
+                                    <th> FaxNumber </th>
+                                    <th> EmailId </th>
+                                    <th> Note </th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (var i = 0; i < Model.Count; i++)
+                                {
+
+                                    @Html.HiddenFor(x => x[i].PK_Provider)
+                                    <tr class="odd gradeX">
+                                        <td></td>
+                                        <td>@Html.DisplayFor(x => x[i].GroupName)</td>
+                                        <td>@Html.DisplayFor(x => x[i].GroupTaxId)</td>
+                                        <td>@Html.DisplayFor(x => x[i].GroupNPI)</td>
+                                        <td>@Html.DisplayFor(x => x[i].ProvCode)</td>
+                                        <td>@Html.DisplayFor(x => x[i].ProvName)</td>
+                                        <td>@Html.DisplayFor(x => x[i].Title)</td>
+                                        <td>@Html.DisplayFor(x => x[i].NPI)</td>
+                                        <td>@Html.DisplayFor(x => x[i].DOB)</td>
+                                        <td>@Html.DisplayFor(x => x[i].SSN)</td>
+                                        <td>@Html.DisplayFor(x => x[i].Speciality)</td>
+                                        <td>@Html.DisplayFor(x => x[i].AddressLine1)</td>
+                                        <td>@Html.DisplayFor(x => x[i].AddressLine2)</td>
+                                        <td>@Html.DisplayFor(x => x[i].City)</td>
+                                        <td>@Html.DisplayFor(x => x[i].State)</td>
+                                        <td>@Html.DisplayFor(x => x[i].ZipCode)</td>
+                                        <td>@Html.DisplayFor(x => x[i].HomePhoneNumber)</td>
+                                        <td>@Html.DisplayFor(x => x[i].WorkPhoneNumber)</td>
+                                        <td>@Html.DisplayFor(x => x[i].OtherPhoneNumber)</td>
+                                        <td>@Html.DisplayFor(x => x[i].FaxNumber)</td>
+                                        <td>@Html.DisplayFor(x => x[i].EmailId)</td>
+                                        <td>@Html.DisplayFor(x => x[i].Note)</td>
+                                        
+                                        <td>
+                                            @*<a href="~/Master/EditProvider"  @(int id = (Model[i].PK_Provider) ) class="btn btn-primary btn-xs">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>*@
+
+                                            @Html.ActionLink("Edit", "EditProvider",
+         new { controller = "Master", id = (Model[i].PK_Provider) },
+         new { @class = "btn btn-primary btn-xs" })
+
+
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!-- end page content -->

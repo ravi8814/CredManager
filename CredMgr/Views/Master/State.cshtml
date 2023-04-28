@@ -1,0 +1,130 @@
+﻿@using CredMgr.Models
+@model IList<StateViewModels>
+@{
+    ViewBag.Title = "State";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="page-bar">
+        <div class="page-title-breadcrumb">
+            <div class=" pull-left">
+                <div class="page-title">Dashboard</div>
+            </div>
+            <ol class="breadcrumb page-breadcrumb pull-right">
+                <li>
+                    <i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                       href="~/Home/Dashboard">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+                </li>
+                <li class="active">State Master</li>
+            </ol>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card card-topline-red">
+                <div class="card-head">
+                    <header>STATE MAPPING</header>
+                </div>
+                <div class="card-body ">
+                    <div class="table-scrollable">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <label class="rt-chkbox rt-chkbox-single rt-chkbox-outline">
+                                            <input type="checkbox" class="checkboxes" value="0" />
+                                            <span></span>
+                                        </label>
+                                    </th>
+                                    <th> State Code </th>
+                                    <th> State Name </th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                @for (var i = 0; i < Model.Count; i++)
+                                {
+                                    <tr class="odd gradeX">
+                                        <td> 
+                                            <label class="rt-chkbox rt-chkbox-single rt-chkbox-outline">
+                                                
+                                               @Html.CheckBox("chkST" + Model[i].PK_States, Model[i].IsChecked, new { @id = "chkST" + Model[i].PK_States, @class = "checkboxes" })
+                                                <span></span>
+                                            </label>
+                                        </td>                                        
+                                        <td>
+                                            <a>
+                                                @Html.DisplayFor(x => x[i].code)
+                                                @*@Html.TextBoxFor(x => x[i].code)*@
+                                            </a>
+                                        </td>
+                                        <td>
+                                            @Html.HiddenFor(x => x[i].PK_States)
+                                            @Html.HiddenFor(x => x[i].PK_CompanyStates)
+                                            <a> @Html.DisplayFor(x => x[i].name) </a>
+
+                                        </td>
+                                        <td>
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        </td>
+
+                                        <td>
+                                            <button class="btn btn-success btn-xs" id="btnSave" type="button" onclick="fnSaveSate(@Model[i].PK_States,@Model[i].PK_CompanyStates)">
+                                                <i class="fa fa-check"></i>
+                                            </button>
+
+                                        </td>
+                                    </tr>
+                                }
+
+
+
+
+                                @*<button class="btn btn-success btn-xs" id="btnSave" type="submit">
+                                        <i class="fa fa-check"></i>
+                                    </button>*@
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script src="~/Content/ServiceScripts/MasterBind.js"></script>
+<script language="javascript" type="text/javascript">
+
+    //$(document).ready(function () {
+
+
+    //    $("#btnSave").click(function test() {
+
+    //        alert("working");
+
+    //        var StateDetail = {
+    //            "lnkID": $("#PK_CompanyStates").val(),
+    //            "PK_States": $("#PK_States").val(),
+    //            "CompanyID": $("#CompanyID").val()
+
+    //        };
+    //        $.ajax({
+    //            type: "PUT",
+    //            url:
+    //            'http://localhost:3959/api/SaveState/StateDetail',
+    //            data: JSON.stringify(StateDetail),
+    //            contentType: "application/json;charset=utf-8",
+    //            success: function (data, status, xhr) {
+    //                alert("The result is : " + status + ": " + data);
+    //            },
+    //            error: function (xhr) {
+    //                alert(xhr.responseText);
+    //            }
+    //        });
+    //    });
+    //});
+</script>
